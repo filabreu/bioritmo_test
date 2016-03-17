@@ -1,6 +1,6 @@
 <h1>Reserva de Sala</h1>
 
-<table class="table">
+<table id="bookings" class="table">
   <thead>
     <tr>
       <th>Horário</th>
@@ -15,7 +15,9 @@
       <%= number_to_hour(hour) %>
     </td>
     <% current_week.each do |date| %>
-    <td id="<%= booking_datetime(date, hour) %>">Disponível</td>
+    <td class="booking" data-since="<%= booking_datetime(date, hour) %>" data-until="<%= booking_datetime(date, hour + 1) %>">
+      <a href="#" class="btn btn-default">disponível</a>
+    </td>
     <% end %>
   </tr>
   <% end %>
